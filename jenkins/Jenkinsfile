@@ -1,0 +1,15 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Provision Jenkins Job') {
+            steps {
+                script {
+                    def dslScriptPath = 'jenkins/dsl/ansible-zabbix-dsl.groovy'
+
+                    jobDsl(scriptText: readFileFromWorkspace(dslScriptPath))
+                }
+            }
+        }
+    }
+}
