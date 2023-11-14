@@ -12,9 +12,10 @@ pipeline {
             steps {
                 script {
                     def dslScriptPath = 'jenkins/dls/ansible-zabbix-dsl.groovy'
+                    def fileContent = readFile("${env.WORKSPACE}/${dslScriptPath}")
                     echo "File Content: ${fileContent}"
 
-                    jobDsl(scriptText: readFileFromWorkspace(dslScriptPath))
+                    jobDsl(scriptText: fileContent)
                 }
             }
         }
