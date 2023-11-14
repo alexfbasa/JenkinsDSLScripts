@@ -6,6 +6,7 @@ pipeline {
             steps {
                 script {
                     def dslScriptPath = 'jenkins/dls/ansible-zabbix-dsl.groovy'
+                    echo "File Content: ${fileContent}"
 
                     jobDsl(scriptText: readFileFromWorkspace(dslScriptPath))
                 }
