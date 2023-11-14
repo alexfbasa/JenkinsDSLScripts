@@ -5,7 +5,7 @@ pipeline {
         stage('Provision Jenkins Job') {
             steps {
                 script {
-                    def dslScriptPath = 'jenkins/dsl/ansible-zabbix-dsl.groovy'
+                    def dslScriptPath = 'jenkins/dls/ansible-zabbix-dsl.groovy'
 
                     jobDsl(scriptText: readFileFromWorkspace(dslScriptPath))
                 }
